@@ -1,4 +1,4 @@
-# Advent-of-Code-2020
+# Advent of Code 2020
 
 My take on this Advent of Code daily challenge.
 
