@@ -5,7 +5,7 @@
 
 using namespace std;
 
-unsigned long long nConvinacions(set<int>::const_iterator adapter, const set<int>& adapters, vector<unsigned long long>& combinacionsCache) {
+unsigned long long nCombinacions(set<int>::const_iterator adapter, const set<int>& adapters, vector<unsigned long long>& combinacionsCache) {
 
     if (*adapter == *adapters.rbegin()) {
         return 1;
@@ -18,7 +18,7 @@ unsigned long long nConvinacions(set<int>::const_iterator adapter, const set<int
     while (adapter != adapters.end() and *adapter - minimActual <= 3) {
         unsigned long long aux = 0;
         if (combinacionsCache[*adapter] == 0) {
-            aux = nConvinacions(adapter, adapters, combinacionsCache);
+            aux = nCombinacions(adapter, adapters, combinacionsCache);
             combinacionsCache[*adapter] = aux;
         } else {
             aux = combinacionsCache[*adapter];
@@ -42,7 +42,7 @@ int main() {
 
     vector<unsigned long long> combinacionsCache(*adapters.rbegin()+1, 0);
 
-    cout << nConvinacions(adapters.begin(), adapters, combinacionsCache) << endl;
+    cout << nCombinacions(adapters.begin(), adapters, combinacionsCache) << endl;
 
 
     return 0;
